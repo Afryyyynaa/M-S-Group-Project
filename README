@@ -1,0 +1,42 @@
+echo "# M-S-Group-Project" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Afryyyynaa/M-S-Group-Project.git
+git push -u origin main
+
+/* Objective of Restaurant Kitchen Simulation: CrazinEat
+1. Increase kitchen efficiency by raising the number of orders prepared per hour. 
+
+2. Evaluate how changes in the menu, such as introducing new dishes or altering existing ones, impact kitchen production efficiency and optimize processes accordingly. 
+
+3. Enhance customer satisfaction by improving ratings by at least one point on a 5-point scale through reduced wait times, order accuracy, and enhanced food quality. 
+
+*Not Confirmed
+Variables
+1. Simulation Time 
+2. Number of cooks 
+3. Number of Servers 
+4. Customer Preferences/Orders
+5. Kitchen Layout 
+6. Cooking Equipment 
+7. Inventory level 
+8. Order processing time 
+9. Service speed
+10. Food quality 
+
+Methods 
+1. Push Order
+2. Pop Order
+3. Empty 
+4. NumOrders
+5. Burger
+6. Salad
+
+
+Classes
+1. Order 
+2. OrderQueue
+
+*/
