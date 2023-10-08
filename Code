@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+
+class KitchenSimulation
+{
+    static void Main(string[] args)
+    {
+        int order = 0;
+        double totalTime = 0;
+        double kitchenEfficiency = 0;
+        List<string> ingredientList = new List<string> { "Tomato", "Cheese", "Patty", "Lettuce", "Bun" };
+
+        Dictionary<string, double> menu = new Dictionary<string, double>
+        {
+            { "Burger1", 5.0 }, // Bun + Patty + Lettuce + Tomato
+            { "Burger2", 4.0 }, // Bun + Patty + Cheese
+            { "Burger3", 4.5 }, // Bun + Patty + Tomato + Cheese
+            { "Salad", 2.0 }    // Tomato + Lettuce
+        };
+
+        int maxOrdersPerHour = 40;
+        double avgTime = 5.0;
+
+        Random rand = new Random();
+
+        while (order < maxOrdersPerHour)
+        {
+            string selectedDish = GetRandomDish(menu, rand);
+            double preparationTime = menu[selectedDish];
+            
+            Console.WriteLine("Preparing: " + selectedDish);
+            Console.WriteLine("Completion Time: " + preparationTime + " minutes\n");
+
+            totalTime += preparationTime;
+            order++;
+
+            if (order >= maxOrdersPerHour)
+            {
+                break;
+            }
+        }
+
+        kitchenEfficiency = order / totalTime;
+
+        Console.WriteLine("Total Orders Completed: " + order);
+        Console.WriteLine("Total Time: " + totalTime + " minutes");
+        Console.WriteLine("Kitchen Efficiency: " + kitchenEfficiency);
+    }
+
+    static string GetRandomDish(Dictionary<string, double> menu, Random rand)
+    {
+        int randomIndex = rand.Next(menu.Count);
+        int currentIndex = 0;
+
+        foreach (var dish in menu.Keys)
+        {
+            if (currentIndex == randomIndex)
+            {
+                return dish;
+            }
+            currentIndex++;
+        }
+
+        // Default return (should never reach here)
+        return "";
+    }
+}
